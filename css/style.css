@@ -1,9 +1,7 @@
 /* The Counter (see DOM events classnotes)*/
-.counter {
-  height: 100px;
-  width: 100px;
-  background-color: blue;
-  border-radius: 50%;
+div {
+  display: flex;
+  justify-content: center;
 }
 
 body {
@@ -29,10 +27,15 @@ ul {
   -webkit-padding-start: 0;
 }
 
-ul li {
+.icons {
   background-color: grey;
   width: calc(20% - 15px);
   height: calc(20% - 10px);
+}
+
+.counter {
+  background-color: blue;
+  border-radius: 40%;
 }
 
 /* The Buttons */
