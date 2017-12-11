@@ -1,0 +1,50 @@
+/* The Counter (see DOM events classnotes)*/
+.counter {
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+/* The Grid */
+
+ul {
+  background-color: lightblue;
+  width: 1000px;
+  height: 800px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0;
+}
+
+ul li {
+  background-color: grey;
+  width: calc(20% - 15px);
+  height: calc(20% - 10px);
+}
+
+/* The Buttons */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 40px;
+  margin: 50px 10px 100px 10px;
+}
+
+/* The Overlays */
