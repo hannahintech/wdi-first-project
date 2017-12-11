@@ -1,4 +1,3 @@
-/* The Counter (see DOM events classnotes)*/
 div {
   display: flex;
   justify-content: center;
@@ -18,7 +17,21 @@ h1 {
   color: #2274A5;
 }
 
+/* The Overlays */
+
+.overlayPlay {
+  display: none;
+  width: 100px;
+  height: auto;
+  justify-content: center;
+  margin: 0;
+}
+
 /* The Grid */
+
+.grid {
+
+}
 
 ul {
   background-color: #73D2DE;
@@ -38,6 +51,9 @@ ul {
 
 .icons {
   background-color: #2274A5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: calc(20% - 15px);
   height: calc(20% - 10px);
 }
@@ -98,14 +114,4 @@ button {
 
 .pauseButton {
   display: none;
-}
-
-/* The Overlays */
-
-.overlayPlay {
-  display: none;
-  width: 100px;
-  height: auto;
-  justify-content: center;
-  margin: 0;
 }

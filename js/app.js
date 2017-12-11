@@ -27,12 +27,13 @@ $(() => {
   const $icons = $('li');
   const $playButton = $('.playButton')
   const $overlayPlay = $('.overlayPlay')
+  const $france = $('.France')
   // Up arrow	38
   // Down arrow	40
   // Left arrow	37
   // Right arrow	39
 
-  // this shows counter, or wiggles div if incorrect answer
+  // this shows counter, or wiggles div if incorrect answer (add setTimeout or other options in jquery? ie .animate)
   $icons.on('click', function(e) {
     const storedId = $(e.target).attr('id');
     if (gridUK[storedId]) {
@@ -42,9 +43,24 @@ $(() => {
     }
   });
 
-  // play button that creates an overlay for country choice
+  // play button that shows an 'overlay' for country choice
   $playButton.on('click', function() {
-    $overlayPlay.css( 'display: flex;' );
+    $overlayPlay.show();
+  });
+
+  // background image - image source .css for France
+  function populateGrid() {
+    console.log($icons)
+    $icons.each(function(i, icon){
+      const iconName = $(icon).attr('id');
+      $(icon).css('background-image', `url('images-france/${iconName}.jpg')`);
+    })
+
+  }
+
+  // populate images using jquery
+  $france.on('click', function() {
+    populateGrid();
   });
 
 });
