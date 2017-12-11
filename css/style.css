@@ -6,6 +6,7 @@ div {
 main {
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 h1 {
@@ -42,6 +43,16 @@ button {
 
 .pauseButton {
   display: none;
+  background-color: #2274A5;
+  border-radius: 40%;
+}
+
+.playButton {
+  border-radius: 40%;
+  background-color: #2274A5;
+  width: calc(20% - 5px);
+  height: calc(15% - 10px);
+  margin: 10px 0;
 }
 
 
