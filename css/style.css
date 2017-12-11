@@ -4,7 +4,7 @@ div {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -17,9 +17,52 @@ h1 {
   color: #2274A5;
 }
 
+/* The Buttons */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 40px;
+  margin: 20px 10px 20px 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: #1C3144;
+  background-color: #73D2DE;
+  /*border: 2px solid #1C3144;*/
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.button .france .italy .UK {
+  border: 2px solid #1C3144;
+}
+
+.pauseButton {
+  display: none;
+}
+
+
 /* The Overlays */
 
-.overlayPlay {
+.overlayChoose {
+  background-color: #73D2DE;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.overlayInstructions {
+  background-color: #73D2DE;
   display: none;
   flex-direction: column;
   justify-content: flex-start;
@@ -46,16 +89,11 @@ ul {
   align-items: center;
   flex-wrap: wrap;
   list-style-type: none;
-  -webkit-margin-before: 0;
+  /*-webkit-margin-before: 0;
   -webkit-margin-after: 0;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
-  -webkit-padding-start: 0;
-}
-
-li {
-  text-align: center;
-  font-style: 'Open Sans', 'sans serif';
+  -webkit-padding-start: 0;*/
 }
 
 .icons {
@@ -114,27 +152,4 @@ li {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
-}
-
-/* The Buttons */
-
-.buttons {
-  display: flex;
-  justify-content: left;
-}
-
-button {
-  font-size: 40px;
-  margin: 50px 10px 40px 10px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  color: #1C3144;
-  background-color: #73D2DE;
-  border: 2px solid #1C3144;
-  border-radius: 30px;
-  padding: 20px;
-}
-
-.pauseButton {
-  display: none;
 }
