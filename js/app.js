@@ -61,6 +61,7 @@ $(() => {
   // populate images using jquery
   $france.on('click', function() {
     populateGrid();
+    $overlayPlay.hide();
   });
 
 });

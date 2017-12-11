@@ -3,9 +3,9 @@ div {
   justify-content: center;
 }
 
-body {
-  display: flex;
-  justify-content: center;
+main {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -21,22 +21,25 @@ h1 {
 
 .overlayPlay {
   display: none;
-  width: 100px;
-  height: auto;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* The Grid */
 
 .grid {
-
+  background-color: #73D2DE;
+  position: relative;
 }
 
 ul {
-  background-color: #73D2DE;
-  width: 1000px;
-  height: 800px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -51,11 +54,12 @@ ul {
 
 .icons {
   background-color: #2274A5;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: calc(20% - 15px);
-  height: calc(20% - 10px);
+  padding-top: 19%;
+  margin: 10px 0;
 }
 
 /* The Counter */
@@ -63,6 +67,19 @@ ul {
 .counter {
   background-color: #2274A5;
   border-radius: 40%;
+  position: relative;
+}
+
+.counter:after {
+  content: '';
+  height: 33%;
+  width: 33%;
+  border-radius: 50%;
+  background-color: #2274A5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
