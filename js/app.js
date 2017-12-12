@@ -36,6 +36,8 @@ $(() => {
   const $returnHome = $('.returnHome');
   const $petrolBar = $('.petrolBar');
   const $petrol = $('.petrol');
+  const $playGame = $('.playGame');
+  const $grid = $('.grid');
   let petrolAmount = 100;
   let $pointsScorer = 0;
   // Up arrow	38
@@ -49,6 +51,7 @@ $(() => {
     if (grid[storedId]) {
       $(e.target).addClass('counter');
       $pointsScorer = $pointsScorer +5;
+      console.log($pointsScorer);
     } else {
       $(e.target).addClass('wiggle');
     }
@@ -68,11 +71,11 @@ $(() => {
 
   $icons.on('click', function() {
     $('.petrol').css('width', `${petrolAmount}%`);
-    petrolAmount = petrolAmount - 9;
+    petrolAmount = petrolAmount - 5;
     console.log(petrolAmount);
     if (petrolAmount <= 0) {
       $overlayLose.show();
-    } else if (petrolAmount === 1 && $pointsScorer >= 55){
+    } else if (petrolAmount >= 1 && $pointsScorer >= 60){
       $overlayWin.show();
     }
   });
@@ -80,8 +83,9 @@ $(() => {
 
   // play button: shows an 'overlay' for country choice
   $playButton.on('click', function() {
+    $playGame.hide();
+    $grid.css('visibility', 'visible');
     $overlayChoose.show();
-    //make playButton say "back" and navigate home
   });
 
   // populate France with background image
@@ -98,13 +102,12 @@ $(() => {
     populateGrid();
     $overlayChoose.hide();
     $overlayInstructions.show();
-    $petrol.show();
-    $petrolBar.show();
   });
 
   // begin journey button
   $beginJourney.on('click', function() {
     $overlayInstructions.hide();
+    $petrolBar.show();
   });
 
 });

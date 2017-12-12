@@ -30,6 +30,7 @@ p {
 
 /* The Petrol Bar*/
 .petrolBar {
+  display: none;
   border: 2px solid #7DB3B4;
   flex-direction: row;
   justify-content: flex-start;
@@ -89,8 +90,12 @@ button {
 
 /* The Overlays */
 
+.playGame {
+
+}
+
 .overlayChoose {
-  background-color: #A7F0F1;
+  background-color: white;
   display: none;
   margin: 0;
   position: absolute;
@@ -102,7 +107,7 @@ button {
 }
 
 .overlayInstructions {
-  background-color: #A7F0F1;
+  background-color: white;
   display: none;
   flex-direction: column;
   justify-content: flex-start;
@@ -116,7 +121,7 @@ button {
 }
 
 .overlayWin {
-  background-color: #A7F0F1;
+  background-color: white;
   display: none;
   margin: 0;
   position: absolute;
@@ -128,7 +133,7 @@ button {
 }
 
 .overlayLose {
-  background-color: #A7F0F1;
+  background-color: white;
   display: none;
   margin: 0;
   position: absolute;
@@ -142,7 +147,8 @@ button {
 /* The Grid */
 
 .grid {
-  background-color: #A7F0F1;
+  visibility: hidden;
+  /*background-color: #A7F0F1;*/
   position: relative;
   display: flex;
 }
