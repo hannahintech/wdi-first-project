@@ -20,6 +20,8 @@ const grid = {
   icon20: false
 };
 
+// empty array(grid), second array with places - objects. objects two key values, name and info and image. math.random to place them into the empty array (one at a time...) place object into grid array. population for the grid would be assigning by name.
+
 $(() => {
 
   // const $counter = $('.counter');
@@ -32,7 +34,10 @@ $(() => {
   const $overlayWin = $('.overlayWin');
   const $overlayLose = $('.overlayLose');
   const $returnHome = $('.returnHome');
+  const $petrolBar = $('.petrolBar');
+  const $petrol = $('.petrol');
   let petrolAmount = 100;
+  let $pointsScorer = 0;
   // Up arrow	38
   // Down arrow	40
   // Left arrow	37
@@ -43,20 +48,17 @@ $(() => {
     const storedId = $(e.target).attr('id');
     if (grid[storedId]) {
       $(e.target).addClass('counter');
+      $pointsScorer = $pointsScorer +5;
     } else {
       $(e.target).addClass('wiggle');
     }
   });
 
+  // on click - each icon add 5 to a global variable (let).
+
   // this resets the Grid
   $returnHome.on('click', function() {
-    $overlayWin.hide();
-    $overlayLose.hide();
-    // $('.petrol').css('width', `${petrolAmount}%`);
-    // petrolAmount = 100;
-    $icons.removeClass('counter');
-    $icons.removeClass('wiggle');
-    // $icons.css('background-image: none');
+    location.reload();
   });
 
   // setInterval(function(){
@@ -70,7 +72,7 @@ $(() => {
     console.log(petrolAmount);
     if (petrolAmount <= 0) {
       $overlayLose.show();
-    } else if (petrolAmount === 1){
+    } else if (petrolAmount === 1 && $pointsScorer >= 55){
       $overlayWin.show();
     }
   });
@@ -89,12 +91,15 @@ $(() => {
       $(icon).css('background-image', `url('images-france/${iconName}.jpg')`);
     });
   }
+  // iterate over array by location and
 
   // populate France images using jquery
   $france.on('click', function() {
     populateGrid();
     $overlayChoose.hide();
     $overlayInstructions.show();
+    $petrol.show();
+    $petrolBar.show();
   });
 
   // begin journey button
