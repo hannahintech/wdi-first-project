@@ -29,6 +29,10 @@ $(() => {
   const $france = $('.France');
   const $overlayInstructions = $('.overlayInstructions');
   const $beginJourney = $('.beginJourney');
+  const $overlayWin = $('.overlayWin');
+  const $overlayLose = $('.overlayLose');
+  const $returnHome = $('.returnHome');
+  let petrolAmount = 100;
   // Up arrow	38
   // Down arrow	40
   // Left arrow	37
@@ -38,11 +42,36 @@ $(() => {
   $icons.on('click', function(e) {
     const storedId = $(e.target).attr('id');
     if (grid[storedId]) {
-      $(e.target).toggleClass('counter');
+      $(e.target).addClass('counter');
     } else {
-      $(e.target).toggleClass('wiggle');
+      $(e.target).addClass('wiggle');
     }
   });
+
+  // this resets the Grid
+  $returnHome.on('click', function(e) {
+    $overlayWin.hide();
+    $overlayLose.hide();
+    $(e.target).removeClass('counter');
+    $(e.target).removeClass('wiggle');
+  });
+
+  // setInterval(function(){
+  //   $('.petrol').css('width', `${petrolAmount}%`);
+  //   petrolAmount--
+  // }, 500)
+
+  $icons.on('click', function() {
+    $('.petrol').css('width', `${petrolAmount}%`);
+    petrolAmount = petrolAmount - 9;
+    console.log(petrolAmount);
+    if (petrolAmount <= 0) {
+      $overlayLose.show();
+    } else if (petrolAmount === 1){
+      $overlayWin.show();
+    }
+  });
+
 
   // play button: shows an 'overlay' for country choice
   $playButton.on('click', function() {
