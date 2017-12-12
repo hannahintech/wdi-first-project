@@ -49,11 +49,14 @@ $(() => {
   });
 
   // this resets the Grid
-  $returnHome.on('click', function(e) {
+  $returnHome.on('click', function() {
     $overlayWin.hide();
     $overlayLose.hide();
-    $(e.target).removeClass('counter');
-    $(e.target).removeClass('wiggle');
+    // $('.petrol').css('width', `${petrolAmount}%`);
+    // petrolAmount = 100;
+    $icons.removeClass('counter');
+    $icons.removeClass('wiggle');
+    // $icons.css('background-image: none');
   });
 
   // setInterval(function(){
