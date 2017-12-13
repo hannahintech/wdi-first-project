@@ -61,15 +61,15 @@ $(() => {
   const $playGame = $('.playGame');
   const $grid = $('.grid');
   let petrolAmount = 100;
-  let $pointsScorer = 0;
+  let pointsScorer = 0;
 
   // this shows counter, or wiggles div if there is an incorrect answer (add setTimeout or other options in jquery? ie .animate)
   $icons.on('click', function(e) {
     const storedId = $(e.target).attr('id');
     if (grid[storedId]) {
       $(e.target).addClass('counter');
-      $pointsScorer = $pointsScorer +5;
-      console.log($pointsScorer);
+      pointsScorer = pointsScorer +5;
+      console.log(pointsScorer);
     } else {
       $(e.target).addClass('wiggle');
     }
@@ -82,7 +82,7 @@ $(() => {
     console.log(petrolAmount);
     if (petrolAmount <= 0) {
       $overlayLose.show();
-    } else if (petrolAmount >= 1 && $pointsScorer >= 60){
+    } else if (petrolAmount >= 1 && pointsScorer >= 60){
       $overlayWin.show();
     }
   });
@@ -95,15 +95,28 @@ $(() => {
   });
 
   // populate France with background image
+  // function populateGridFrance() {
+  //   $icons.each(function(i, icon){
+  //     const iconName = $(icon).attr('id');
+  //     $(icon).css('background-image', `url('images-france/${iconName}.jpg')`);
+  //   });
+  // }
+
   function populateGridFrance() {
-    $icons.each(function(i, icon){
-      const iconName = $(icon).attr('id');
-      $(icon).css('background-image', `url('images-france/${iconName}.jpg')`);
-    });
+    // loop over each element of the array,
+    for (var i = 0; i < iconArray.length; i++) {
+      // let iconName = iconArray[i];
+      $icons.each(function(i, icon){
+        $(icon).attr('id', iconArray[i]);
+        $(icon).css('background-image', `url('images-france/${iconArray[i]}.jpg')`);
+      });
+    }
   }
-  // iterate over array by location and
-  // match the indexes
-  // make array of list items
+
+  // add id text that is the same as css id
+  // assigning the list items id and list items backround image that matches the array element string
+  // add background images
+
 
   // populate France images using jquery
   $france.on('click', function() {
