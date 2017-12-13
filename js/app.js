@@ -50,14 +50,17 @@ $(() => {
   const $playButton = $('.playButton');
   const $overlayChoose = $('.overlayChoose');
   const $france = $('.France');
+  const $italy = $('.Italy');
   const $overlayInstructions = $('.overlayInstructions');
   const $beginJourney = $('.beginJourney');
+  const $goBack = $('.goBack');
   const $overlayWin = $('.overlayWin');
   const $overlayLose = $('.overlayLose');
   const $returnHome = $('.returnHome');
   const $petrolBar = $('.petrolBar');
   const $playGame = $('.playGame');
   const $grid = $('.grid');
+  const $countryChosen = $('.countryChosen');
   let petrolAmount = 75;
   let pointsScorer = 0;
 
@@ -82,8 +85,10 @@ $(() => {
     $('.petrol').css('width', `${petrolAmount}%`);
     // petrolAmount = petrolAmount - 8;
     if (petrolAmount <= 0 && pointsScorer < 60) {
+      // $petrolBar.hide();
       $overlayLose.show();
     } else if (petrolAmount >= 1 && pointsScorer >= 60){
+      $petrolBar.hide();
       $overlayWin.show();
     }
   });
@@ -95,6 +100,22 @@ $(() => {
     $overlayChoose.show();
   });
 
+  // call the populate France function and go to next stage
+  $france.on('click', function() {
+    populateGridFrance();
+    $overlayChoose.hide();
+    $overlayInstructions.show();
+    $countryChosen.text('French');
+  });
+
+  $italy.on('click', function() {
+    populateGridItaly();
+    $overlayChoose.hide();
+    $overlayInstructions.show();
+    $countryChosen.text('Italian');
+  });
+
+  // populate grid functions
   function populateGridFrance() {
     // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
@@ -106,17 +127,27 @@ $(() => {
     }
   }
 
-  // call the populate France function and go to next stage
-  $france.on('click', function() {
-    populateGridFrance();
-    $overlayChoose.hide();
-    $overlayInstructions.show();
-  });
+  function populateGridItaly() {
+    // loop over each element of the array,
+    for (var i = 0; i < iconArray.length; i++) {
+      // let iconName = iconArray[i];
+      $icons.each(function(i, icon){
+        $(icon).attr('id', iconArray[i]);
+        $(icon).css('background-image', `url('images-italy/${iconArray[i]}.jpg')`);
+      });
+    }
+  }
+
 
   // after pressing begin journey button
   $beginJourney.on('click', function() {
     $overlayInstructions.hide();
     $petrolBar.show();
+  });
+
+  $goBack.on('click', function(){
+    $overlayInstructions.hide();
+    $overlayChoose.show();
   });
 
   // this resets the Grid
