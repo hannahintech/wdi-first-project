@@ -1,26 +1,49 @@
 const grid = {
+  icon1: true,
   icon2: true,
   icon3: true,
   icon4: true,
   icon5: true,
-  icon6: false,
-  icon7: false,
-  icon8: false,
-  icon9: false,
+  icon6: true,
+  icon7: true,
+  icon8: true,
+  icon9: true,
   icon10: true,
   icon11: true,
   icon12: true,
-  icon13: true,
-  icon14: true,
-  icon15: true,
-  icon16: true,
+  icon13: false,
+  icon14: false,
+  icon15: false,
+  icon16: false,
   icon17: false,
   icon18: false,
   icon19: false,
   icon20: false
 };
 
-// empty array(grid), second array with places - objects. objects two key values, name and info and image. math.random to place them into the empty array (one at a time...) place object into grid array. population for the grid would be assigning by name.
+// array from grid
+let iconArray = Object.keys(grid);
+
+// shuffle function (random element for an array)
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+// Used like so
+iconArray = shuffle(iconArray);
+console.log(iconArray);
+
 
 $(() => {
 
@@ -35,17 +58,12 @@ $(() => {
   const $overlayLose = $('.overlayLose');
   const $returnHome = $('.returnHome');
   const $petrolBar = $('.petrolBar');
-  const $petrol = $('.petrol');
   const $playGame = $('.playGame');
   const $grid = $('.grid');
   let petrolAmount = 100;
   let $pointsScorer = 0;
-  // Up arrow	38
-  // Down arrow	40
-  // Left arrow	37
-  // Right arrow	39
 
-  // this shows counter, or wiggles div if incorrect answer (add setTimeout or other options in jquery? ie .animate)
+  // this shows counter, or wiggles div if there is an incorrect answer (add setTimeout or other options in jquery? ie .animate)
   $icons.on('click', function(e) {
     const storedId = $(e.target).attr('id');
     if (grid[storedId]) {
@@ -57,18 +75,7 @@ $(() => {
     }
   });
 
-  // on click - each icon add 5 to a global variable (let).
-
-  // this resets the Grid
-  $returnHome.on('click', function() {
-    location.reload();
-  });
-
-  // setInterval(function(){
-  //   $('.petrol').css('width', `${petrolAmount}%`);
-  //   petrolAmount--
-  // }, 500)
-
+  // this changes the petrol level
   $icons.on('click', function() {
     $('.petrol').css('width', `${petrolAmount}%`);
     petrolAmount = petrolAmount - 5;
@@ -80,7 +87,6 @@ $(() => {
     }
   });
 
-
   // play button: shows an 'overlay' for country choice
   $playButton.on('click', function() {
     $playGame.hide();
@@ -89,17 +95,19 @@ $(() => {
   });
 
   // populate France with background image
-  function populateGrid() {
+  function populateGridFrance() {
     $icons.each(function(i, icon){
       const iconName = $(icon).attr('id');
       $(icon).css('background-image', `url('images-france/${iconName}.jpg')`);
     });
   }
   // iterate over array by location and
+  // match the indexes
+  // make array of list items
 
   // populate France images using jquery
   $france.on('click', function() {
-    populateGrid();
+    populateGridFrance();
     $overlayChoose.hide();
     $overlayInstructions.show();
   });
@@ -110,7 +118,11 @@ $(() => {
     $petrolBar.show();
   });
 
-});
+  // this resets the Grid
+  $returnHome.on('click', function() {
+    location.reload();
+  });
 
-// images: store as france, and italy etc (create the list and choose from correct and false).
-// how to randomise it?
+
+// end of page loaded function
+});
