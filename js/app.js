@@ -46,8 +46,6 @@ console.log(iconArray);
 
 
 $(() => {
-
-  // const $counter = $('.counter');
   const $icons = $('li');
   const $playButton = $('.playButton');
   const $overlayChoose = $('.overlayChoose');
@@ -60,7 +58,7 @@ $(() => {
   const $petrolBar = $('.petrolBar');
   const $playGame = $('.playGame');
   const $grid = $('.grid');
-  let petrolAmount = 100;
+  let petrolAmount = 90;
   let pointsScorer = 0;
 
   // this shows counter, or wiggles div if there is an incorrect answer (add setTimeout or other options in jquery? ie .animate)
@@ -69,6 +67,7 @@ $(() => {
     if (grid[storedId]) {
       $(e.target).addClass('counter');
       pointsScorer = pointsScorer +5;
+      console.log('pointsScorer');
       console.log(pointsScorer);
     } else {
       $(e.target).addClass('wiggle');
@@ -78,9 +77,10 @@ $(() => {
   // this changes the petrol level
   $icons.on('click', function() {
     $('.petrol').css('width', `${petrolAmount}%`);
-    petrolAmount = petrolAmount - 5;
+    petrolAmount = petrolAmount - 10;
+    console.log('petrol');
     console.log(petrolAmount);
-    if (petrolAmount <= 0) {
+    if (petrolAmount <= -5) {
       $overlayLose.show();
     } else if (petrolAmount >= 1 && pointsScorer >= 60){
       $overlayWin.show();
@@ -94,14 +94,6 @@ $(() => {
     $overlayChoose.show();
   });
 
-  // populate France with background image
-  // function populateGridFrance() {
-  //   $icons.each(function(i, icon){
-  //     const iconName = $(icon).attr('id');
-  //     $(icon).css('background-image', `url('images-france/${iconName}.jpg')`);
-  //   });
-  // }
-
   function populateGridFrance() {
     // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
@@ -113,19 +105,14 @@ $(() => {
     }
   }
 
-  // add id text that is the same as css id
-  // assigning the list items id and list items backround image that matches the array element string
-  // add background images
-
-
-  // populate France images using jquery
+  // call the populate France function and go to next stage
   $france.on('click', function() {
     populateGridFrance();
     $overlayChoose.hide();
     $overlayInstructions.show();
   });
 
-  // begin journey button
+  // after pressing begin journey button
   $beginJourney.on('click', function() {
     $overlayInstructions.hide();
     $petrolBar.show();
