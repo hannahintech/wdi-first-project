@@ -28,6 +28,10 @@ p {
   text-align: center;
 }
 
+li:hover {
+  border: 2px solid #41A2A5;
+}
+
 /* The Petrol Bar*/
 .petrolBar {
   display: none;
@@ -63,30 +67,11 @@ button {
   padding: 10px 50px 10px 50px;
 }
 
-/*button.playButton {
-  color: #41A2A5;
-}*/
-
-/*.france, .italy, .UK {
-  border: 2px solid #41A2A5;
-}*/
-
-.pauseButton {
-  display: none;
+button:hover {
+  outline: 0;
   background-color: #41A2A5;
-  border-radius: 40%;
+  transition: background-color .5s;
 }
-
-.playButton {
-  border-radius: 40px;
-  background-color: #A7F0F1;
-  width: calc(20% - 5px);
-  height: calc(15% - 10px);
-  margin: 10px 0;
-  padding: 10px;
-}
-
-
 
 
 /* The Overlays */
