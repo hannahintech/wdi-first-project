@@ -40,57 +40,52 @@ function shuffle(array) {
   return array;
 }
 
-// Used like so
+// consider the best position for this
 iconArray = shuffle(iconArray);
-console.log(iconArray);
-
 
 $(() => {
   const $icons = $('li');
+  const $grid = $('.grid');
+
+  // buttons
   const $playButton = $('.playButton');
-  const $overlayChoose = $('.overlayChoose');
-  const $france = $('.France');
-  const $italy = $('.Italy');
-  const $overlayInstructions = $('.overlayInstructions');
+  const $france = $('.france');
+  const $italy = $('.italy');
+  const $britain = $('.britain');
   const $beginJourney = $('.beginJourney');
   const $goBack = $('.goBack');
+  const $returnHome = $('.returnHome');
+  const $viewJourney = $('.viewJourney');
+
+  // overlays
+  const $playGame = $('.playGame');
+  const $overlayChoose = $('.overlayChoose');
+  const $overlayInstructions = $('.overlayInstructions');
   const $overlayWin = $('.overlayWin');
   const $overlayLose = $('.overlayLose');
-  const $returnHome = $('.returnHome');
+
+  // score related
   const $petrolBar = $('.petrolBar');
-  const $playGame = $('.playGame');
-  const $grid = $('.grid');
-  const $countryChosen = $('.countryChosen');
   let petrolAmount = 75;
   let pointsScorer = 0;
 
-  // this shows counter, or wiggles div if there is an incorrect answer
-  $icons.on('click', function(e) {
-    const storedId = $(e.target).attr('id');
-    if (grid[storedId] && $(e.target).hasClass('counter') === false) {
-      $(e.target).addClass('counter');
-      pointsScorer = pointsScorer +5;
-      petrolAmount = petrolAmount -5;
-      console.log('pointsScorer =>', pointsScorer);
-      console.log('petrol =>', petrolAmount);
-    } else {
-      $(e.target).addClass('wiggle');
-      petrolAmount = petrolAmount -5;
-      console.log('points:',pointsScorer, 'petrol:',petrolAmount);
-    }
+  // span class for country specific text
+  const $countryChosen = $('.countryChosen');
+
+  // buttons
+  $beginJourney.on('click', function() {
+    $overlayInstructions.hide();
+    $petrolBar.show();
   });
 
-  // this changes the petrol level
-  $icons.on('click', function() {
-    $('.petrol').css('width', `${petrolAmount}%`);
-    // petrolAmount = petrolAmount - 8;
-    if (petrolAmount <= 0 && pointsScorer < 60) {
-      // $petrolBar.hide();
-      $overlayLose.show();
-    } else if (petrolAmount >= 1 && pointsScorer >= 60){
-      $petrolBar.hide();
-      $overlayWin.show();
-    }
+  $goBack.on('click', function(){
+    $overlayInstructions.hide();
+    $overlayChoose.show();
+  });
+
+  // this resets the Grid
+  $returnHome.on('click', function() {
+    location.reload();
   });
 
   // play button: shows an 'overlay' for country choice
@@ -100,7 +95,7 @@ $(() => {
     $overlayChoose.show();
   });
 
-  // call the populate France function and go to next stage
+  // buttons to call the populate grid function
   $france.on('click', function() {
     populateGridFrance();
     $overlayChoose.hide();
@@ -138,23 +133,32 @@ $(() => {
     }
   }
 
-
-  // after pressing begin journey button
-  $beginJourney.on('click', function() {
-    $overlayInstructions.hide();
-    $petrolBar.show();
+  // function that shows if user is correct not
+  $icons.on('click', function(e) {
+    const storedId = $(e.target).attr('id');
+    if (grid[storedId] && $(e.target).hasClass('counter') === false) {
+      $(e.target).addClass('counter');
+      pointsScorer = pointsScorer +5;
+      petrolAmount = petrolAmount -5;
+      console.log('pointsScorer =>', pointsScorer);
+      console.log('petrol =>', petrolAmount);
+    } else {
+      $(e.target).addClass('wiggle');
+      petrolAmount = petrolAmount -5;
+      console.log('points:',pointsScorer, 'petrol:',petrolAmount);
+    }
   });
 
-  $goBack.on('click', function(){
-    $overlayInstructions.hide();
-    $overlayChoose.show();
+  // keeps score
+  $icons.on('click', function() {
+    $('.petrol').css('width', `${petrolAmount}%`);
+    if (petrolAmount <= 0 && pointsScorer < 60) {
+      $overlayLose.show();
+    } else if (petrolAmount >= 1 && pointsScorer >= 60){
+      $petrolBar.hide();
+      $overlayWin.show();
+    }
   });
-
-  // this resets the Grid
-  $returnHome.on('click', function() {
-    location.reload();
-  });
-
 
 // end of page loaded function
 });
