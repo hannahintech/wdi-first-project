@@ -58,29 +58,30 @@ $(() => {
   const $petrolBar = $('.petrolBar');
   const $playGame = $('.playGame');
   const $grid = $('.grid');
-  let petrolAmount = 90;
+  let petrolAmount = 75;
   let pointsScorer = 0;
 
-  // this shows counter, or wiggles div if there is an incorrect answer (add setTimeout or other options in jquery? ie .animate)
+  // this shows counter, or wiggles div if there is an incorrect answer
   $icons.on('click', function(e) {
     const storedId = $(e.target).attr('id');
-    if (grid[storedId]) {
+    if (grid[storedId] && $(e.target).hasClass('counter') === false) {
       $(e.target).addClass('counter');
       pointsScorer = pointsScorer +5;
-      console.log('pointsScorer');
-      console.log(pointsScorer);
+      petrolAmount = petrolAmount -5;
+      console.log('pointsScorer =>', pointsScorer);
+      console.log('petrol =>', petrolAmount);
     } else {
       $(e.target).addClass('wiggle');
+      petrolAmount = petrolAmount -5;
+      console.log('points:',pointsScorer, 'petrol:',petrolAmount);
     }
   });
 
   // this changes the petrol level
   $icons.on('click', function() {
     $('.petrol').css('width', `${petrolAmount}%`);
-    petrolAmount = petrolAmount - 10;
-    console.log('petrol');
-    console.log(petrolAmount);
-    if (petrolAmount <= -5) {
+    // petrolAmount = petrolAmount - 8;
+    if (petrolAmount <= 0 && pointsScorer < 60) {
       $overlayLose.show();
     } else if (petrolAmount >= 1 && pointsScorer >= 60){
       $overlayWin.show();
