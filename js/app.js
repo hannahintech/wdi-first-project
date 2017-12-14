@@ -64,7 +64,7 @@ $(() => {
   const $overlayWin = $('.overlayWin');
   const $overlayLose = $('.overlayLose');
 
-  // score related
+  // score feature
   const $petrolBar = $('.petrolBar');
   let petrolAmount = 75;
   let pointsScorer = 0;
@@ -72,7 +72,13 @@ $(() => {
   // span class for country specific text
   const $countryChosen = $('.countryChosen');
 
-  // buttons
+  // jquery button click functions
+  $playButton.on('click', function() {
+    $playGame.hide();
+    $grid.css('visibility', 'visible');
+    $overlayChoose.show();
+  });
+
   $beginJourney.on('click', function() {
     $overlayInstructions.hide();
     $petrolBar.show();
@@ -83,19 +89,12 @@ $(() => {
     $overlayChoose.show();
   });
 
-  // this resets the Grid
+  // reset game button
   $returnHome.on('click', function() {
     location.reload();
   });
 
-  // play button: shows an 'overlay' for country choice
-  $playButton.on('click', function() {
-    $playGame.hide();
-    $grid.css('visibility', 'visible');
-    $overlayChoose.show();
-  });
-
-  // buttons to call the populate grid function
+  // populate the grid buttons
   $france.on('click', function() {
     populateGridFrance();
     $overlayChoose.hide();
@@ -110,7 +109,7 @@ $(() => {
     $countryChosen.text('Italian');
   });
 
-  // populate grid functions
+  // populate grid logic
   function populateGridFrance() {
     // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
@@ -133,6 +132,17 @@ $(() => {
     }
   }
 
+  // keeps score
+  $icons.on('click', function() {
+    $('.petrol').css('width', `${petrolAmount}%`);
+    if (petrolAmount <= 0 && pointsScorer < 60) {
+      $overlayLose.show();
+    } else if (petrolAmount >= 1 && pointsScorer >= 60){
+      $petrolBar.hide();
+      $overlayWin.show();
+    }
+  });
+
   // function that shows if user is correct not
   $icons.on('click', function(e) {
     const storedId = $(e.target).attr('id');
@@ -149,16 +159,6 @@ $(() => {
     }
   });
 
-  // keeps score
-  $icons.on('click', function() {
-    $('.petrol').css('width', `${petrolAmount}%`);
-    if (petrolAmount <= 0 && pointsScorer < 60) {
-      $overlayLose.show();
-    } else if (petrolAmount >= 1 && pointsScorer >= 60){
-      $petrolBar.hide();
-      $overlayWin.show();
-    }
-  });
 
 // end of page loaded function
 });
