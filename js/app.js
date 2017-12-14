@@ -112,6 +112,13 @@ $(() => {
     $countryChosen.text('Italian');
   });
 
+  $italy.on('click', function() {
+    populateGridBritain();
+    $overlayChoose.hide();
+    $overlayInstructions.show();
+    $countryChosen.text('Italian');
+  });
+
   // populate grid logic
   function populateGridFrance() {
     // loop over each element of the array,
@@ -131,6 +138,17 @@ $(() => {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
         $(icon).css('background-image', `url('images-italy/${iconArray[i]}.jpg')`);
+      });
+    }
+  }
+
+  function populateGridBritain() {
+    // loop over each element of the array,
+    for (var i = 0; i < iconArray.length; i++) {
+      // let iconName = iconArray[i];
+      $icons.each(function(i, icon){
+        $(icon).attr('id', iconArray[i]);
+        $(icon).css('background-image', `url('images-britain/${iconArray[i]}.jpg')`);
       });
     }
   }
