@@ -45,7 +45,7 @@ iconArray = shuffle(iconArray);
 
 $(() => {
   // stay at top of page
-  $('html, body, main').animate({ scrollTop: 0 }, 500);
+  $('html, body').animate({ scrollTop: 0 }, 500);
 
   const $icons = $('li');
   const $grid = $('.grid');
@@ -152,7 +152,6 @@ $(() => {
   function losePoints(e) {
     if (!isTrue(e)) {
       wrongAnswer(e);
-      pointsScorer = pointsScorer -5;
     }
   }
 
@@ -169,12 +168,20 @@ $(() => {
     $(e.target).addClass('wiggle');
   }
 
+  function didYouWin() {
+    if (petrolAmount >= 1 && pointsScorer >= 60){
+      $petrolBar.hide();
+      $overlayWin.show();
+    } else if (petrolAmount <= 0) {
+      $overlayLose.show();
+    }
+  }
 
 
-
-  $icons.on('click', losePetrol());
+  $icons.on('click', losePetrol);
   $icons.on('click', losePoints);
   $icons.on('click', winPoints);
+  $icons.on('click', didYouWin);
 
 
 // on click, is the icon true? then add points. on click, if the icon is false, takeaway points
