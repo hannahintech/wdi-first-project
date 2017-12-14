@@ -79,7 +79,8 @@ $(() => {
   // jquery button click functions
   $playButton.on('click', function() {
     $playGame.hide();
-    $grid.css('visibility', 'visible');
+    $grid.show();
+    // $grid.css('z-index: 999');
     $overlayChoose.show();
   });
 
@@ -117,8 +118,11 @@ $(() => {
     populateGridBritain();
     $overlayChoose.hide();
     $overlayInstructions.show();
-    $countryChosen.text('Italian');
+    $countryChosen.text('British');
   });
+
+
+  // pass a string using jquery ie $(icon).css('background-image', `url('${franceGrid}/${iconArray[i]}.jpg')`); and make the rest an 'anonymous' funtion
 
   // populate grid logic
   function populateGridFrance() {
@@ -155,8 +159,7 @@ $(() => {
   }
 
   function isTrue(e) {
-    const clickedIcon = $(e.target).attr('id');
-    return grid[clickedIcon];
+    return grid[$(e.target).attr('id')];
   }
 
   function winPoints(e) {
@@ -178,7 +181,7 @@ $(() => {
   }
 
   function addCounter(e) {
-    $(e.target).addClass('counter');
+    $(e.target).addClass('addTick');
   }
 
   function wrongAnswer(e) {
@@ -187,26 +190,27 @@ $(() => {
 
   function didYouWin() {
     if (petrolAmount >= 1 && pointsScorer >= 60){
+      window.scrollTo(0, 0);
       $petrolBar.hide();
       $overlayWin.show();
     } else if (petrolAmount <= 0) {
+      window.scrollTo(0, 0);
       $overlayLose.show();
     }
   }
 
+  function addCursor() {
+    $(this).addClass('addCursor');
+  }
 
+  // gameplay
   $icons.on('click', losePetrol);
   $icons.on('click', losePoints);
   $icons.on('click', winPoints);
   $icons.on('click', didYouWin);
-  // mouseover icons, addClass
-  $grid.on('mouseover', function addCursor() {
-    $(this).addClass('addCursor');
-  });
 
-  $buttons.on('mouseover', function addCursor() {
-    $(this).addClass('addCursor');
-  });
+  // mouseover icons, addClass
+  $grid.on('mouseover', addCursor);
 
 // end of page loaded function
 });
