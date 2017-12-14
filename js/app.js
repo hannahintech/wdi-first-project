@@ -59,6 +59,7 @@ $(() => {
   const $goBack = $('.goBack');
   const $returnHome = $('.returnHome');
   const $viewJourney = $('.viewJourney');
+  const $buttons = $('button');
 
   // overlays
   const $playGame = $('.playGame');
@@ -199,8 +200,12 @@ $(() => {
   $icons.on('click', winPoints);
   $icons.on('click', didYouWin);
   // mouseover icons, addClass
-  $grid.on('mouseover', function addCursor(e) {
-    $(e.target).addClass('addCursor');
+  $grid.on('mouseover', function addCursor() {
+    $(this).addClass('addCursor');
+  });
+
+  $buttons.on('mouseover', function addCursor() {
+    $(this).addClass('addCursor');
   });
 
 // end of page loaded function
