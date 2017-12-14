@@ -93,6 +93,10 @@ button:hover {
     width: 400px;
 }
 
+.returnHome {
+  width: 400px
+}
+
 /* Not in use yet
 button.viewJourney {
   font-size: 30px;
