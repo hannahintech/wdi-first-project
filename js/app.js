@@ -198,6 +198,10 @@ $(() => {
   $icons.on('click', losePoints);
   $icons.on('click', winPoints);
   $icons.on('click', didYouWin);
+  // mouseover icons, addClass
+  $icons.on('mouseover', function addCursor(e) {
+    $(e.target).addClass('addCursor');
+  });
 
 // end of page loaded function
 });
