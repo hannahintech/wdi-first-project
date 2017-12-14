@@ -199,7 +199,7 @@ $(() => {
   $icons.on('click', winPoints);
   $icons.on('click', didYouWin);
   // mouseover icons, addClass
-  $icons.on('mouseover', function addCursor(e) {
+  $grid.on('mouseover', function addCursor(e) {
     $(e.target).addClass('addCursor');
   });
 
