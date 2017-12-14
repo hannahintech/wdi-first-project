@@ -44,6 +44,9 @@ function shuffle(array) {
 iconArray = shuffle(iconArray);
 
 $(() => {
+  // stay at top of page
+  $('html, body, main').animate({ scrollTop: 0 }, 500);
+
   const $icons = $('li');
   const $grid = $('.grid');
 
@@ -132,32 +135,50 @@ $(() => {
     }
   }
 
-  // keeps score
-  $icons.on('click', function() {
-    $('.petrol').css('width', `${petrolAmount}%`);
-    if (petrolAmount <= 0 && pointsScorer < 60) {
-      $overlayLose.show();
-    } else if (petrolAmount >= 1 && pointsScorer >= 60){
-      $petrolBar.hide();
-      $overlayWin.show();
-    }
-  });
+  // is icon true or false
+  function isTrue(e) {
+    const clickedIcon = $(e.target).attr('id');
+    return grid[clickedIcon];
+    // how will I access the keys from the grid object in order to compare them with the clicked icon element?
+  }
 
-  // function that shows if user is correct not
-  $icons.on('click', function(e) {
-    const storedId = $(e.target).attr('id');
-    if (grid[storedId] && $(e.target).hasClass('counter') === false) {
-      $(e.target).addClass('counter');
+  function winPoints(e) {
+    if (isTrue(e)) {
+      addCounter(e);
       pointsScorer = pointsScorer +5;
-      petrolAmount = petrolAmount -5;
-      console.log('pointsScorer =>', pointsScorer);
-      console.log('petrol =>', petrolAmount);
-    } else {
-      $(e.target).addClass('wiggle');
-      petrolAmount = petrolAmount -5;
-      console.log('points:',pointsScorer, 'petrol:',petrolAmount);
     }
-  });
+  }
+
+  function losePoints(e) {
+    if (!isTrue(e)) {
+      wrongAnswer(e);
+      pointsScorer = pointsScorer -5;
+    }
+  }
+
+  function losePetrol() {
+    petrolAmount = petrolAmount -5;
+    $('.petrol').css('width', `${petrolAmount}%`);
+  }
+
+  function addCounter(e) {
+    $(e.target).addClass('counter');
+  }
+
+  function wrongAnswer(e) {
+    $(e.target).addClass('wiggle');
+  }
+
+
+
+
+  $icons.on('click', losePetrol());
+  $icons.on('click', losePoints);
+  $icons.on('click', winPoints);
+
+
+// on click, is the icon true? then add points. on click, if the icon is false, takeaway points
+//
 
 
 // end of page loaded function
