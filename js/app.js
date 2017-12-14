@@ -112,7 +112,7 @@ $(() => {
     $countryChosen.text('Italian');
   });
 
-  $italy.on('click', function() {
+  $britain.on('click', function() {
     populateGridBritain();
     $overlayChoose.hide();
     $overlayInstructions.show();
@@ -153,11 +153,9 @@ $(() => {
     }
   }
 
-  // is icon true or false
   function isTrue(e) {
     const clickedIcon = $(e.target).attr('id');
     return grid[clickedIcon];
-    // how will I access the keys from the grid object in order to compare them with the clicked icon element?
   }
 
   function winPoints(e) {
@@ -200,11 +198,6 @@ $(() => {
   $icons.on('click', losePoints);
   $icons.on('click', winPoints);
   $icons.on('click', didYouWin);
-
-
-// on click, is the icon true? then add points. on click, if the icon is false, takeaway points
-//
-
 
 // end of page loaded function
 });
