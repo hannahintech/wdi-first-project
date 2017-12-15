@@ -28,7 +28,7 @@ p {
   text-align: center;
 }
 
-.headingImg {
+.heading-img {
   width: auto;
   height: 150px;
   background-image: url(../images/skyline2.png);
@@ -37,7 +37,7 @@ p {
   background-size: contain;
 }
 
-.defaultCursor {
+.default-cursor {
   cursor: default;
 }
 
@@ -46,7 +46,7 @@ p {
 }
 
 /* The Petrol Bar*/
-.petrolBar {
+.petrol-bar {
   display: none;
   flex-direction: row;
   justify-content: flex-start;
@@ -54,7 +54,7 @@ p {
   border-radius: 5px;
 }
 
-.petrolBar h3 {
+.petrol-bar h3 {
   font-size: 20px;
   color: #3644A5;
   padding: 5px;
@@ -66,13 +66,11 @@ p {
   height: 20px;
 }
 
-
 .bike {
   z-index: 999;
   width: 100px;
   height: 100%;
 }
-
 
 /* The Buttons */
 button {
@@ -92,7 +90,7 @@ button:hover {
   outline: 0;
 }
 
-.playButton {
+.play-button {
   width: 150px;
 }
 
@@ -103,29 +101,36 @@ button:hover {
 }
 
 .beginJourney {
-    width: 400px;
+  width: 400px;
 }
 
-.returnHome {
+.return-home {
   width: 400px
 }
 
-
 /* The Overlays */
-.overlayChoose {display: none;}
+.overlay-choose {
+  display: none;
+}
 
-.overlayInstructions {
+.overlay-instructions {
   display: none;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.overlayWin {display: none;}
+.overlay-win {
+  display: none;
+}
 
-.overlayLose {display: none;}
+.overlay-lose {
+  display: none;
+}
 
 /* The Grid */
-.grid {display: none}
+.grid {
+  display: none
+}
 
 ul {
   width: 100%;

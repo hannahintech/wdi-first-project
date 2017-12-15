@@ -44,41 +44,43 @@ function shuffle(array) {
 iconArray = shuffle(iconArray);
 
 $(() => {
-  // stay at top of page
-  $('html, body').animate({ scrollTop: 0 }, 500);
+
+  // main section
   const $icons = $('li');
   const $grid = $('.grid');
+  const $home = $('.home');
 
   // buttons
-  const $playButton = $('.playButton');
+  const $playButton = $('.play-button');
   const $france = $('.france');
   const $italy = $('.italy');
   const $britain = $('.britain');
   const $beginJourney = $('.beginJourney');
   const $goBack = $('.goBack');
-  const $returnHome = $('.returnHome');
+  const $returnHome = $('.return-home');
   const $viewJourney = $('.viewJourney');
   const $buttons = $('button');
 
   // overlays
   const $hello = $('.hello');
-  const $playGame = $('.playGame');
-  const $overlayChoose = $('.overlayChoose');
-  const $overlayInstructions = $('.overlayInstructions');
-  const $overlayWin = $('.overlayWin');
-  const $overlayLose = $('.overlayLose');
+  const $playGame = $('.play-game');
+  const $overlayChoose = $('.overlay-choose');
+  const $overlayInstructions = $('.overlay-instructions');
+  const $overlayWin = $('.overlay-win');
+  const $overlayLose = $('.overlay-lose');
 
-  // on load
-  // $hello.show();
   // score feature
-  const $petrolBar = $('.petrolBar');
+  const $petrolBar = $('.petrol-bar');
   let petrolAmount = 75;
   let pointsScorer = 0;
 
   // span class for country specific text
   const $countryChosen = $('.countryChosen');
 
-  // jquery button click functions
+  // stay at top of page
+  $('html, body').animate({ scrollTop: 0 }, 500);
+
+  // button events
   $playButton.on('click', function() {
     $playGame.hide();
     $overlayChoose.show();
@@ -95,15 +97,20 @@ $(() => {
     $overlayChoose.show();
   });
 
-  // reset game button
-  $returnHome.on('click', function() {
+  // reset game button event
+  function reset() {
     $playGame.show();
     $overlayWin.hide();
+    $overlayChoose.hide();
+    $beginJourney.hide();
     petrolAmount = 75;
     pointsScorer = 0;
-  });
+  }
 
-  // populate the grid buttons
+  $returnHome.on('click', reset);
+  $home.on('click', reset);
+
+  // populate the grid button events
   $france.on('click', function() {
     populateGridFrance();
     $overlayChoose.hide();
