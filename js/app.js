@@ -124,6 +124,7 @@ $(() => {
   function reset() {
     $playGame.show();
     $overlayWin.hide();
+    $overlayLose.hide();
     $overlayChoose.hide();
     $overlayInstructions.hide();
     $grid.hide();
@@ -132,7 +133,7 @@ $(() => {
     pointsScorer = 0;
   }
 
-  // pass a string using jquery ie $(icon).css('background-image', `url('${franceGrid}/${iconArray[i]}.jpg')`); and make the rest an 'anonymous' funtion
+  // I need to pass a string using jquery ie $(icon).css('background-image', `url('${franceGrid}/${iconArray[i]}.jpg')`); and make the rest an 'anonymous' funtion
 
   // populate grid logic
   function populateGridFrance() {
