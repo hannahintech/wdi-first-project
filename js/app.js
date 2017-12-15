@@ -55,7 +55,7 @@ $(() => {
   const $france = $('.france');
   const $italy = $('.italy');
   const $britain = $('.britain');
-  const $beginJourney = $('.beginJourney');
+  const $beginJourney = $('.begin-journey');
   const $goBack = $('.goBack');
   const $returnHome = $('.return-home');
   const $viewJourney = $('.viewJourney');
@@ -75,7 +75,7 @@ $(() => {
   let pointsScorer = 0;
 
   // span class for country specific text
-  const $countryChosen = $('.countryChosen');
+  const $countryChosen = $('.country-chosen');
 
   // stay at top of page
   $('html, body').animate({ scrollTop: 0 }, 500);
@@ -96,19 +96,6 @@ $(() => {
     $overlayInstructions.hide();
     $overlayChoose.show();
   });
-
-  // reset game button event
-  function reset() {
-    $playGame.show();
-    $overlayWin.hide();
-    $overlayChoose.hide();
-    $beginJourney.hide();
-    petrolAmount = 75;
-    pointsScorer = 0;
-  }
-
-  $returnHome.on('click', reset);
-  $home.on('click', reset);
 
   // populate the grid button events
   $france.on('click', function() {
@@ -132,6 +119,18 @@ $(() => {
     $countryChosen.text('British');
   });
 
+
+  // functions
+  function reset() {
+    $playGame.show();
+    $overlayWin.hide();
+    $overlayChoose.hide();
+    $overlayInstructions.hide();
+    $grid.hide();
+    $petrolBar.hide();
+    petrolAmount = 75;
+    pointsScorer = 0;
+  }
 
   // pass a string using jquery ie $(icon).css('background-image', `url('${franceGrid}/${iconArray[i]}.jpg')`); and make the rest an 'anonymous' funtion
 
@@ -222,6 +221,10 @@ $(() => {
 
   // mouseover icons, addClass
   $grid.on('mouseover', addCursor);
+
+  // reset game button event
+  $returnHome.on('click', reset);
+  $home.on('click', reset);
 
 // end of page loaded function
 });
