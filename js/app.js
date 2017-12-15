@@ -130,6 +130,7 @@ $(() => {
     $grid.hide();
     $petrolBar.hide();
     petrolAmount = 75;
+    $('.petrol').css('width', `${petrolAmount}%`);
     pointsScorer = 0;
   }
 
