@@ -28,6 +28,19 @@ p {
   text-align: center;
 }
 
+.headingImg {
+  width: auto;
+  height: 150px;
+  background-image: url(../images/skyline2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.defaultCursor {
+  cursor: default;
+}
+
 .addCursor {
   cursor: url("../images/bikeSmall.png"), pointer;
 }
@@ -70,11 +83,11 @@ button {
   color: #3644A5;
   border: none;
   border-radius: 20px;
-  padding: 20px;
+  padding: 5px;
 }
 
 button:hover {
-  font-size: 37px;
+  font-size: 35px;
   font-weight: 600;
   outline: 0;
 }
@@ -97,70 +110,22 @@ button:hover {
   width: 400px
 }
 
-/* Not in use yet
-button.viewJourney {
-  font-size: 30px;
-  margin: 25px 8px 15px 8px;
-  padding: 10px 30px 10px 30px;
-}*/
 
 /* The Overlays */
-.overlayChoose {
-  background-color: white;
-  display: none;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-}
+.overlayChoose {display: none;}
 
 .overlayInstructions {
-  background-color: white;
   display: none;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
 }
 
-.overlayWin {
-  background-color: white;
-  display: none;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-}
+.overlayWin {display: none;}
 
-.overlayLose {
-  background-color: white;
-  display: none;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-}
+.overlayLose {display: none;}
 
 /* The Grid */
-.grid {
-  display: none;
-  position: relative;
-  display: flex;
-}
+.grid {display: none}
 
 ul {
   width: 100%;

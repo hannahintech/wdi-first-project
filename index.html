@@ -11,44 +11,46 @@
   <script type="text/javascript" src="./js/app.js"></script>
   </head>
   <body>
-    <main>
+    <main class="defaultCursor">
+      <div class="headingImg"></div>
       <h1>Monumental Muddle</h1>
       <div class="petrolBar">
         <img src="images/bike.png" alt="" class="bike">
         <h3>Petrol</h3>
         <div class="petrol"></div>
       </div>
+      <!-- Overlays start here -->
       <div class="playGame">
         <p>Hello there! I am in a spot of bother! I really want to visit some interesting places before I go home, but all the local monuments are in a muddle! I am a poor traveller, without much petrol for my motorbike. Can you help me?</p>
         <button type="button" name="play" class="playButton">Play</button>
       </div>
+      <div class="overlayChoose">
+        <p>Choose which country you want to help me drive through!</p>
+          <button type="button" name="button" class="france">France</button>
+          <button type="button" name="button" class="italy">Italy</button>
+          <button type="button" name="button" class="britain">Britain</button>
+      </div>
+      <div class="overlayInstructions">
+        <p> I need you to click on all the <span class="countryChosen">French</span> monuments so I can visit them! Make sure I don't take too many detours and run out of petrol on my journey!
+        </p>
+        <button type="button" name="button" class="beginJourney">Begin Journey</button>
+        <button type="button" name="button" class="goBack">Back</button>
+      </div>
+      <div class="overlayWin">
+        <p>
+          I made it! You helped me reach the end of my journey! Thank you.
+        </p>
+        <button type="button" name="button" class="returnHome">Return Home</button>
+        <!-- <button type="button" name="button" class="viewJourney">View Journey</button> -->
+      </div>
+      <div class="overlayLose">
+        <p>
+          Oh no! I took too many detours and ran out of petrol!
+        </p>
+        <button type="button" name="button" class="returnHome">Try again</button>
+        <!-- <button type="button" name="button" class="viewJourney">View Journey</button> -->
+      </div>
       <div class="grid">
-        <div class="overlayChoose">
-          <p>Choose which country you want to help me drive through!</p>
-            <button type="button" name="button" class="france">France</button>
-            <button type="button" name="button" class="italy">Italy</button>
-            <button type="button" name="button" class="britain">Britain</button>
-        </div>
-        <div class="overlayInstructions">
-          <p> I need you to click on all the <span class="countryChosen">French</span> monuments so I can visit them! Make sure I don't take too many detours and run out of petrol on my journey!
-          </p>
-          <button type="button" name="button" class="beginJourney">Begin Journey</button>
-          <button type="button" name="button" class="goBack">Back</button>
-        </div>
-        <div class="overlayWin">
-          <p>
-            I made it! You helped me reach the end of my journey! Thank you.
-          </p>
-          <button type="button" name="button" class="returnHome">Return Home</button>
-          <!-- <button type="button" name="button" class="viewJourney">View Journey</button> -->
-        </div>
-        <div class="overlayLose">
-          <p>
-            Oh no! I took too many detours and ran out of petrol!
-          </p>
-          <button type="button" name="button" class="returnHome">Try again</button>
-          <!-- <button type="button" name="button" class="viewJourney">View Journey</button> -->
-        </div>
         <ul>
           <li class="icons"></li>
           <li class="icons"></li>

@@ -46,7 +46,6 @@ iconArray = shuffle(iconArray);
 $(() => {
   // stay at top of page
   $('html, body').animate({ scrollTop: 0 }, 500);
-
   const $icons = $('li');
   const $grid = $('.grid');
 
@@ -62,12 +61,15 @@ $(() => {
   const $buttons = $('button');
 
   // overlays
+  const $hello = $('.hello');
   const $playGame = $('.playGame');
   const $overlayChoose = $('.overlayChoose');
   const $overlayInstructions = $('.overlayInstructions');
   const $overlayWin = $('.overlayWin');
   const $overlayLose = $('.overlayLose');
 
+  // on load
+  // $hello.show();
   // score feature
   const $petrolBar = $('.petrolBar');
   let petrolAmount = 75;
@@ -79,14 +81,13 @@ $(() => {
   // jquery button click functions
   $playButton.on('click', function() {
     $playGame.hide();
-    $grid.show();
-    // $grid.css('z-index: 999');
     $overlayChoose.show();
   });
 
   $beginJourney.on('click', function() {
     $overlayInstructions.hide();
     $petrolBar.show();
+    $grid.show();
   });
 
   $goBack.on('click', function(){
@@ -96,7 +97,10 @@ $(() => {
 
   // reset game button
   $returnHome.on('click', function() {
-    location.reload();
+    $playGame.show();
+    $overlayWin.hide();
+    petrolAmount = 75;
+    pointsScorer = 0;
   });
 
   // populate the grid buttons
