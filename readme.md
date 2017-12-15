@@ -47,3 +47,4 @@ In terms of the game and the concept:
 * I would like to tackle accessibility and consider a way my game could be playable by everyone. Unfortunately I didn't have enough time to work on this aspect
 * I wanted to add some additional jQuery animations, and I would enjoy adding them at a later date
 * My biggest goal for future changes would be to use an api to source the country images for the game, so that the images would be different each time, and more countries could be added. This would make the game even more educational, as well as being fun to play!
+* I also wanted to add a feature where the game would scroll down when the mouse reached a certain point on the screen, to improve the UX.
