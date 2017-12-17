@@ -40,8 +40,6 @@ function shuffle(array) {
   return array;
 }
 
-// consider the best position for this
-iconArray = shuffle(iconArray);
 
 $(() => {
 
@@ -138,9 +136,9 @@ $(() => {
 
   // populate grid logic
   function populateGridFrance() {
+    iconArray = shuffle(iconArray);
     // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
-      // let iconName = iconArray[i];
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
         $(icon).css('background-image', `url('images-france/${iconArray[i]}.jpg')`);
@@ -149,9 +147,9 @@ $(() => {
   }
 
   function populateGridItaly() {
+    iconArray = shuffle(iconArray);
     // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
-      // let iconName = iconArray[i];
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
         $(icon).css('background-image', `url('images-italy/${iconArray[i]}.jpg')`);
@@ -160,9 +158,9 @@ $(() => {
   }
 
   function populateGridBritain() {
+    iconArray = shuffle(iconArray);
     // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
-      // let iconName = iconArray[i];
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
         $(icon).css('background-image', `url('images-britain/${iconArray[i]}.jpg')`);
