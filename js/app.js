@@ -128,7 +128,7 @@ $(() => {
     for (var i = 0; i < iconArray.length; i++) {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
-        $(icon).css('background-image', `url('images-france/${iconArray[i]}.jpg')`);
+        $(icon).css('background-image', `url('france/${iconArray[i]}.jpg')`);
       });
     }
   }
@@ -138,7 +138,7 @@ $(() => {
     for (var i = 0; i < iconArray.length; i++) {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
-        $(icon).css('background-image', `url('images-italy/${iconArray[i]}.jpg')`);
+        $(icon).css('background-image', `url('italy/${iconArray[i]}.jpg')`);
       });
     }
   }
@@ -148,7 +148,7 @@ $(() => {
     for (var i = 0; i < iconArray.length; i++) {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
-        $(icon).css('background-image', `url('images-britain/${iconArray[i]}.jpg')`);
+        $(icon).css('background-image', `url('britain/${iconArray[i]}.jpg')`);
       });
     }
   }
