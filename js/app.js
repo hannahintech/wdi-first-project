@@ -46,21 +46,8 @@ $(() => {
   // main section
   const $icons = $('li');
   const $grid = $('.grid');
-  const $home = $('.home');
-
-  // buttons
-  const $playButton = $('.play-button');
-  const $france = $('.france');
-  const $italy = $('.italy');
-  const $britain = $('.britain');
-  const $beginJourney = $('.begin-journey');
-  const $goBack = $('.go-back');
-  const $returnHome = $('.return-home');
-  const $viewJourney = $('.viewJourney');
-  const $buttons = $('button');
 
   // overlays
-  const $hello = $('.hello');
   const $playGame = $('.play-game');
   const $overlayChoose = $('.overlay-choose');
   const $overlayInstructions = $('.overlay-instructions');
@@ -69,6 +56,7 @@ $(() => {
 
   // score feature
   const $petrolBar = $('.petrol-bar');
+  const $petrol = $('.petrol');
   let petrolAmount = 75;
   let pointsScorer = 0;
 
@@ -79,38 +67,38 @@ $(() => {
   $('html, body').animate({ scrollTop: 0 }, 500);
 
   // button events
-  $playButton.on('click', function() {
+  $('.play-button').on('click', function() {
     $playGame.hide();
     $overlayChoose.show();
   });
 
-  $beginJourney.on('click', function() {
+  $('.begin-journey').on('click', function() {
     $overlayInstructions.hide();
     $petrolBar.show();
     $grid.show();
   });
 
-  $goBack.on('click', function(){
+  $('.go-back').on('click', function(){
     $overlayInstructions.hide();
     $overlayChoose.show();
   });
 
   // populate the grid button events
-  $france.on('click', function() {
+  $('.france').on('click', function() {
     populateGridFrance();
     $overlayChoose.hide();
     $overlayInstructions.show();
     $countryChosen.text('French');
   });
 
-  $italy.on('click', function() {
+  $('.italy').on('click', function() {
     populateGridItaly();
     $overlayChoose.hide();
     $overlayInstructions.show();
     $countryChosen.text('Italian');
   });
 
-  $britain.on('click', function() {
+  $('.britain').on('click', function() {
     populateGridBritain();
     $overlayChoose.hide();
     $overlayInstructions.show();
@@ -128,16 +116,15 @@ $(() => {
     $grid.hide();
     $petrolBar.hide();
     petrolAmount = 75;
-    $('.petrol').css('width', `${petrolAmount}%`);
+    $petrol.css('width', '100%');
     pointsScorer = 0;
+    $icons.removeClass('addTick');
+    $icons.removeClass('wiggle');
   }
-
-  // I need to pass a string using jquery ie $(icon).css('background-image', `url('${franceGrid}/${iconArray[i]}.jpg')`); and make the rest an 'anonymous' funtion
 
   // populate grid logic
   function populateGridFrance() {
     iconArray = shuffle(iconArray);
-    // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
@@ -148,7 +135,6 @@ $(() => {
 
   function populateGridItaly() {
     iconArray = shuffle(iconArray);
-    // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
@@ -159,7 +145,6 @@ $(() => {
 
   function populateGridBritain() {
     iconArray = shuffle(iconArray);
-    // loop over each element of the array,
     for (var i = 0; i < iconArray.length; i++) {
       $icons.each(function(i, icon){
         $(icon).attr('id', iconArray[i]);
@@ -187,7 +172,7 @@ $(() => {
 
   function losePetrol() {
     petrolAmount = petrolAmount -5;
-    $('.petrol').css('width', `${petrolAmount}%`);
+    $petrol.css('width', `${petrolAmount}%`);
   }
 
   function addCounter(e) {
@@ -223,8 +208,8 @@ $(() => {
   $grid.on('mouseover', addCursor);
 
   // reset game button event
-  $returnHome.on('click', reset);
-  $home.on('click', reset);
+  $('.return-home').on('click', reset);
+  $('.home').on('click', reset);
 
 // end of page loaded function
 });
