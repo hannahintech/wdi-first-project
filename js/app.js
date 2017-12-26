@@ -53,6 +53,7 @@ $(() => {
   const $overlayInstructions = $('.overlay-instructions');
   const $overlayWin = $('.overlay-win');
   const $overlayLose = $('.overlay-lose');
+  const $paragraph = $('p');
 
   // score feature
   const $petrolBar = $('.petrol-bar');
@@ -186,10 +187,13 @@ $(() => {
   function didYouWin() {
     if (petrolAmount >= 1 && pointsScorer >= 60){
       window.scrollTo(0, 0);
+      $grid.hide();
       $petrolBar.hide();
       $overlayWin.show();
     } else if (petrolAmount <= 0) {
       window.scrollTo(0, 0);
+      $grid.hide();
+      $petrolBar.hide();
       $overlayLose.show();
     }
   }

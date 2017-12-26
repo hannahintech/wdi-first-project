@@ -121,10 +121,16 @@ button:hover {
 
 .overlay-win {
   display: none;
+  font-size: 40px;
+  color: #0B1C8B;
+  font-weight: bold;
 }
 
 .overlay-lose {
   display: none;
+  font-size: 40px;
+  color: #0B1C8B;
+  font-weight: bold;
 }
 
 /* The Grid */
