@@ -11,7 +11,7 @@
 
 #### View Online
 
-- [View on Heroku](https;//monumental-muddle.herokuapp.com)
+- [View on Heroku](https://monumental-muddle.herokuapp.com)
 - [View on Github](https://github.com/hannahintech/wdi-first-project)
 
 ![skyline, title "monumental muddle", image of a bike, "petrol" and pertrol bar, images of places in Britain. Some places in the countryside, some churches, and some other landmarks](images/for-readme/game-play.png "The landing page for my game")
